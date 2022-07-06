@@ -87,19 +87,19 @@ ipcMain.handle('startBots', async (e, ip, port, alts, proxy, version, macro, onl
     }
     switch (onlinemode) {
       case "cracked":
-        botMap.set(bName,new Bot(bName,undefined,version,false,ip,port,proxy,macro,undefined));
+        botMap.set(bName,new Bot(bName,undefined,version,false,ip,port,proxy,macro,undefined,undefined));
         botMap.get(bName).connect();
         break;
       case "mojang":
-        botMap.set(bName,new Bot(bName,bPassword,version,"mojang",ip,port,proxy,macro,"https://authserver.mojang.com/"));
+        botMap.set(bName,new Bot(bName,bPassword,version,"mojang",ip,port,proxy,macro,"https://authserver.mojang.com/","https://sessionserver.mojang.com/"));
         botMap.get(bName).connect();
         break;
       case "microsoft":
-        botMap.set(bName,new Bot(bName,bPassword,version,"microsoft",ip,port,proxy,macro,undefined));
+        botMap.set(bName,new Bot(bName,bPassword,version,"microsoft",ip,port,proxy,macro,undefined,"https://sessionserver.mojang.com/"));
         botMap.get(bName).connect();
         break;
       case "thealtening":
-        botMap.set(bName,new Bot(bName,"anything",version,"mojang",ip,port,proxy,macro,"http://authserver.thealtening.com"));
+        botMap.set(bName,new Bot(bName,"anything",version,"mojang",ip,port,proxy,macro,"http://authserver.thealtening.com","http://sessionserver.thealtening.com"));
         botMap.get(bName).connect();
         break;
       default:
